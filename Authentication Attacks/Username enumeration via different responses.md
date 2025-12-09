@@ -56,5 +56,5 @@ We can now enter our credentials.
 
 </details>
 
-**Takeaway:**
+# Takeaway:
 This lab was a good hands-on demonstration of hacking a login page using Burp Suite. The core technique I learned was username enumeration: by carefully watching for subtle differences in the server's error message or response length like getting a slightly different response for an invalid username versus an invalid password, I could pinpoint a valid account, which turned out to be '**ag**'. Once I had the username, I pivoted to a password brute-force attack, and the key to success was looking for a successful HTTP 302 redirect status code instead of a typical 202, which confirmed the correct password. Two big vulnerabilities here were the verbose error meesage about the incorrect username which allowed for enumeration of the username and no brute-force protection on the login page such as an IP block. This lab shows the need for strong error handling and rate-limiting.
